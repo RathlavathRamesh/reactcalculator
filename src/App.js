@@ -9,7 +9,7 @@ class App extends Component {
     compute: '',
     operation: '',
     result: '',
-    ans: false,
+    answer: false,
   }
 
   clearbutton = () => {
@@ -31,6 +31,7 @@ class App extends Component {
         second: '',
         operation: '',
         result: '',
+        answer: false,
       })
     } else if (operation === '') {
       this.setState({first: `${first}1`})
@@ -47,6 +48,7 @@ class App extends Component {
         second: '',
         operation: '',
         result: '',
+        answer: false,
       })
     } else if (operation === '') {
       this.setState({first: `${first}2`})
@@ -63,6 +65,7 @@ class App extends Component {
         second: '',
         operation: '',
         result: '',
+        answer: false,
       })
     } else if (operation === '') {
       this.setState({first: `${first}3`})
@@ -79,6 +82,7 @@ class App extends Component {
         second: '',
         operation: '',
         result: '',
+        answer: false,
       })
     } else if (operation === '') {
       this.setState({first: `${first}4`})
@@ -95,6 +99,7 @@ class App extends Component {
         second: '',
         operation: '',
         result: '',
+        answer: false,
       })
     } else if (operation === '') {
       this.setState({first: `${first}5`})
@@ -111,6 +116,7 @@ class App extends Component {
         second: '',
         operation: '',
         result: '',
+        answer: false,
       })
     } else if (operation === '') {
       this.setState({first: `${first}6`})
@@ -127,6 +133,7 @@ class App extends Component {
         second: '',
         operation: '',
         result: '',
+        answer: false,
       })
     } else if (operation === '') {
       this.setState({first: `${first}7`})
@@ -143,6 +150,7 @@ class App extends Component {
         second: '',
         operation: '',
         result: '',
+        answer: false,
       })
     } else if (operation === '') {
       this.setState({first: `${first}8`})
@@ -170,6 +178,7 @@ class App extends Component {
         second: '',
         operation: '',
         result: '',
+        answer: false,
       })
     } else if (operation === '') {
       this.setState({first: `${first}9`})
@@ -197,7 +206,7 @@ class App extends Component {
     const {first, second, operation, answer} = this.state
     const bool1 = first.includes('0')
     const bool2 = second.includes('0')
-    if (answer === 0) {
+    if (answer === true) {
       this.setState({
         first: '0',
         second: '',
