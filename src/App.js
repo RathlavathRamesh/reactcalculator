@@ -126,7 +126,7 @@ class App extends Component {
   }
 
   minusbtn = () => {
-    const {first} = this.state
+    const {first, answer} = this.state
     if (first !== '') this.setState({operation: '-'})
   }
 
