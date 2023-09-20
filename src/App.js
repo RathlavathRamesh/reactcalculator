@@ -24,8 +24,15 @@ class App extends Component {
   }
 
   onebtn = () => {
-    const {first, operation, second} = this.state
-    if (operation === '') {
+    const {first, second, operation, answer} = this.state
+    if (answer === true) {
+      this.setState({
+        first: '1',
+        second: '',
+        operation: '',
+        result: '',
+      })
+    } else if (operation === '') {
       this.setState({first: `${first}1`})
     } else {
       this.setState({second: `${second}1`})
@@ -33,8 +40,15 @@ class App extends Component {
   }
 
   twobtn = () => {
-    const {first, operation, second} = this.state
-    if (operation === '') {
+    const {first, second, operation, answer} = this.state
+    if (answer === true) {
+      this.setState({
+        first: '2',
+        second: '',
+        operation: '',
+        result: '',
+      })
+    } else if (operation === '') {
       this.setState({first: `${first}2`})
     } else {
       this.setState({second: `${second}2`})
@@ -42,8 +56,15 @@ class App extends Component {
   }
 
   threebtn = () => {
-    const {first, operation, second} = this.state
-    if (operation === '') {
+    const {first, second, operation, answer} = this.state
+    if (answer === true) {
+      this.setState({
+        first: '3',
+        second: '',
+        operation: '',
+        result: '',
+      })
+    } else if (operation === '') {
       this.setState({first: `${first}3`})
     } else {
       this.setState({second: `${second}3`})
@@ -51,8 +72,15 @@ class App extends Component {
   }
 
   fourbtn = () => {
-    const {first, operation, second} = this.state
-    if (operation === '') {
+    const {first, second, operation, answer} = this.state
+    if (answer === true) {
+      this.setState({
+        first: '4',
+        second: '',
+        operation: '',
+        result: '',
+      })
+    } else if (operation === '') {
       this.setState({first: `${first}4`})
     } else {
       this.setState({second: `${second}4`})
@@ -60,8 +88,15 @@ class App extends Component {
   }
 
   fivebtn = () => {
-    const {first, operation, second} = this.state
-    if (operation === '') {
+    const {first, second, operation, answer} = this.state
+    if (answer === true) {
+      this.setState({
+        first: '5',
+        second: '',
+        operation: '',
+        result: '',
+      })
+    } else if (operation === '') {
       this.setState({first: `${first}5`})
     } else {
       this.setState({second: `${second}5`})
@@ -69,8 +104,15 @@ class App extends Component {
   }
 
   sixbtn = () => {
-    const {first, operation, second} = this.state
-    if (operation === '') {
+    const {first, second, operation, answer} = this.state
+    if (answer === true) {
+      this.setState({
+        first: '6',
+        second: '',
+        operation: '',
+        result: '',
+      })
+    } else if (operation === '') {
       this.setState({first: `${first}6`})
     } else {
       this.setState({second: `${second}6`})
@@ -78,8 +120,15 @@ class App extends Component {
   }
 
   sevenbtn = () => {
-    const {first, operation, second} = this.state
-    if (operation === '') {
+    const {first, second, operation, answer} = this.state
+    if (answer === true) {
+      this.setState({
+        first: '7',
+        second: '',
+        operation: '',
+        result: '',
+      })
+    } else if (operation === '') {
       this.setState({first: `${first}7`})
     } else {
       this.setState({second: `${second}7`})
@@ -87,8 +136,15 @@ class App extends Component {
   }
 
   eightbtn = () => {
-    const {first, operation, second} = this.state
-    if (operation === '') {
+    const {first, second, operation, answer} = this.state
+    if (answer === true) {
+      this.setState({
+        first: '8',
+        second: '',
+        operation: '',
+        result: '',
+      })
+    } else if (operation === '') {
       this.setState({first: `${first}8`})
     } else {
       this.setState({second: `${second}8`})
@@ -107,8 +163,15 @@ class App extends Component {
   }
 
   ninebtn = () => {
-    const {first, operation, second} = this.state
-    if (operation === '') {
+    const {first, second, operation, answer} = this.state
+    if (answer === true) {
+      this.setState({
+        first: '9',
+        second: '',
+        operation: '',
+        result: '',
+      })
+    } else if (operation === '') {
       this.setState({first: `${first}9`})
     } else {
       this.setState({second: `${second}9`})
@@ -126,15 +189,22 @@ class App extends Component {
   }
 
   minusbtn = () => {
-    const {first, answer} = this.state
+    const {first} = this.state
     if (first !== '') this.setState({operation: '-'})
   }
 
   zerobtn = () => {
-    const {first, second, operation} = this.state
+    const {first, second, operation, answer} = this.state
     const bool1 = first.includes('0')
     const bool2 = second.includes('0')
-    if ((bool1 === false || first.length !== 1) && operation === '')
+    if (answer === 0) {
+      this.setState({
+        first: '0',
+        second: '',
+        operation: '',
+        result: '',
+      })
+    } else if ((bool1 === false || first.length !== 1) && operation === '')
       this.setState({first: `${first}0`})
     else if ((bool2 === false || second.length !== 1) && operation !== '')
       this.setState({second: `${second}0`})
@@ -182,13 +252,19 @@ class App extends Component {
         default:
           break
       }
-      const answ = ans.toString()
-      this.setState({result: answ, answer: true})
+      const finaloutput = ans.toString()
+      this.setState({
+        result: finaloutput,
+        first: '',
+        second: '',
+        answer: true,
+        operation: '',
+      })
     }
   }
 
   render() {
-    const {first, second, compute, operation, result, answer} = this.state
+    const {first, second, compute, operation, result} = this.state
     console.log(first, second, compute, operation)
     return (
       <div className="header-Container">
@@ -198,7 +274,6 @@ class App extends Component {
             <div className="first-operand">{first}</div>
             <div className="first-operand">{operation}</div>
             <div className="second-operand">{second}</div>
-            {answer === true && <div className="second-operand">=</div>}
             <div className="second-operand">{result}</div>
           </div>
           <button type="button" className="span-two" onClick={this.clearbutton}>
